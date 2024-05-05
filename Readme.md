@@ -65,7 +65,19 @@ This is a Vendor Management System built with Django and Django Rest Framework, 
      ``` bash
      Authorization: Token <your-authentication-token>
      ```
-  
+
+## Running Tests
+To run the test suite for the Vendor Management System, follow these steps:
+1. Activate the virtual environment if not already activated:
+   ``` bash
+   source venv/bin/activate   # On macOS and Linux
+   .\venv\Scripts\Activate.ps1   # On Windows (PowerShell)
+   ```
+2. Run the test command:
+   ``` bash
+   python manage.py test
+   ```
+This command will execute all the test cases defined in the project and display the results in the terminal.
 
 ## Contributing
 Contributions are welcome! Please feel free to fork the repository and submit pull requests to contribute new features, improvements, or fixes.
