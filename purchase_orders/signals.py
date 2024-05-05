@@ -16,6 +16,7 @@ def handle_purchase_order_save(sender, instance, created, **kwargs):
   else:  # Process updated purchase orders (potentially completed)
     if instance.status == 'completed':
       update_on_time_delivery_rate(instance)  # Update on-time delivery rate
+      update_historical_performance(instance.vendor) # Update Historical performance of vendor
       if instance.quality_rating is not None:  # Update quality rating if completed with rating
         update_vendor_quality_rating(instance.vendor)
     if instance.status == 'cancelled':
@@ -67,13 +68,13 @@ def update_vendor_metrics(vendor):
 
   vendor.fulfillment_rate = fulfillment_rate
   vendor.save()
+  
+def update_historical_performance(vendor):
   performance_record = HistoricalPerformance(
     vendor=vendor,
-    date=datetime.datetime.now(),
     on_time_delivery_rate=vendor.on_time_delivery_rate,
     quality_rating_avg=vendor.quality_rating_avg,
     average_response_time=vendor.average_response_time,
     fulfillment_rate=vendor.fulfillment_rate
   )
   performance_record.save()
-

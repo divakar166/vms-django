@@ -40,5 +40,8 @@ class HistoricalPerformance(models.Model):
   average_response_time = models.FloatField()
   fulfillment_rate = models.FloatField()
   
+  class Meta:
+    unique_together = ('vendor', 'date')
+
   def __str__(self):
     return f"{self.vendor.vendor_code} - {self.date.strftime('%Y-%m-%d')}"

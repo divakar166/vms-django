@@ -99,7 +99,6 @@ class PurchaseOrderRetrieveUpdateDestroyViewTestCase(TestCase):
   def test_update_purchase_order(self):
     url = reverse('pos-retrieve-update-destroy', kwargs={'pk': self.purchase_order.pk})
     data = {
-      'order_date': timezone.now(),
       'status': 'completed'
     }
     response = self.client.put(url, data, format='json')
