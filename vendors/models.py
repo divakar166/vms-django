@@ -27,6 +27,9 @@ class Vendor(models.Model):
     count = Vendor.objects.count() + 1
     # Format the vendor code
     return f'VN{count:03d}'
+  
+  def __str__(self):
+    return f"{self.vendor_code} - {self.name}"
 
 # Historical Performance Model
 class HistoricalPerformance(models.Model):
@@ -38,4 +41,4 @@ class HistoricalPerformance(models.Model):
   fulfillment_rate = models.FloatField()
   
   def __str__(self):
-    return f"{self.vendor.name} - {self.date.strftime('%Y-%m-%d')}"
+    return f"{self.vendor.vendor_code} - {self.date.strftime('%Y-%m-%d')}"

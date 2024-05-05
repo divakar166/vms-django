@@ -109,6 +109,11 @@ class PurchaseOrderCompletionView(APIView):
                 return Response({'message': 'Purchase order is not acknowledged.'}, status=status.HTTP_400_BAD_REQUEST)
             if purchase_order.status == 'completed':
                 return Response({'message': 'Purchase order already completed.'}, status=status.HTTP_400_BAD_REQUEST)
+            quality_rating = request.data.get('quality_rating')
+            if quality_rating is not None:
+                # Update purchase order with quality rating
+                purchase_order.quality_rating = quality_rating
+                purchase_order.save()
             purchase_order.complete_order()  # Call the method from the model
             serializer = PurchaseOrderSerializer(purchase_order)
             return Response(serializer.data, status=status.HTTP_200_OK)
