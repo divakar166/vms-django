@@ -35,15 +35,15 @@ This is a Vendor Management System built with Django and Django Rest Framework, 
    ``` bash
    python manage.py createsuperuser
    ```
-8. Generate an authentication token
+8. Start the development server
+   ``` bash
+   python manage.py runserver
+   ```
+9. Generate an authentication token
    * To access the API endpoints, you need to generate an authentication token for your user account.
    * Log in to the Django admin panel at http://localhost:8000/admin/ using the superuser credentials created in step 7.
    * Navigate to the "Token" section under "Authentication and Authorization" and click on "Add Token".
    * Select your user account from the dropdown list and click "Save". This will generate an authentication token for your user account.
-9. Start the development server
-   ``` bash
-   python manage.py runserver
-   ```
 10. Open your web browser and navigate to http://localhost:8000/admin/ to access the admin panel
 11. You can also explore the API endpoints:
     * http://localhost:8000/api/vendors/ - API endpoint for managing vendors.
@@ -60,6 +60,7 @@ This is a Vendor Management System built with Django and Django Rest Framework, 
    * Use the Django admin panel at http://localhost:8000/admin/ to manage vendors, purchase orders, and historical performance records.
 2. API Endpoints
    * Access the API endpoints for managing vendors, purchase orders, and historical performance data. Refer to the Installation section for the URLs.
+   * Use Postman or ThunderClient to test APIs.
 3. Authentication Token:
    * To make requests to the API endpoints, include the generated authentication token in the request headers:
      ``` bash
