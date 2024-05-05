@@ -21,7 +21,7 @@ This is a Vendor Management System built with Django and Django Rest Framework, 
      ```
    * On Windows (PowerShell)
      ``` bash
-     .\venv\Scripts\Activate.ps1
+     .\venv\Scripts\Activate
      ```
 5. Install dependencies
    ``` bash
