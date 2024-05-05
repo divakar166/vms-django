@@ -29,6 +29,7 @@ This is a Vendor Management System built with Django and Django Rest Framework, 
    ```
 6. Apply database migrations
    ``` bash
+   python manage.py makemigrations vendors purchase_orders
    python manage.py migrate
    ```
 7. Create a superuser
